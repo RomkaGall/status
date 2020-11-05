@@ -6,6 +6,7 @@
         <title>Status</title>
         <link rel="stylesheet" href="css/main.min.css" />
         <link rel="stylesheet" href="libs/swiper/swiper-bundle.min.css"/>
+        <link rel="stylesheet" href="libs/youtube/jquery.mb.YTPlayer.min.css"/>
         <meta name="viewport" content="width=device-width,  initial-scale=1, width=375" />
     </head>
     <body>
@@ -36,8 +37,77 @@
                     <div class="banner__slider slider_pattern">
                         <div class="swiper-wrapper">
                             <!-- Slides -->
+            
+                            <div class="swiper-slide swiper-slide1">
+                                <div class="container">
+                                    <div class="banner__content">
+                                        <h2 class="banner__title">Апартаменты с гарантированной доходностью</h2>
+                                        <p class="banner__description">Уникальные инвестиционные апартаменты
+                                            с <span class="highlight highlight--secondary">гарантированной</span> доходностью 10,57% 
+                                            в Московском районе Петербурга.</p>
+                                        <a href="#" class="btn btn_1"><span class="inner_text">Подробнее</span></a>  
+            
+                                        <button class="banner__control pause" onclick="if($(this).hasClass('pause')){jQuery('#player1').YTPPause()}else{jQuery('#player1').YTPPlay()} "></button>
+                                        
+                                        <div id="player1" class="youtube_player" data-property="{videoURL:'http://youtu.be/1La4QzGeaaQ',containment:'.swiper-slide1',autoPlay:true, mute:true, startAt:0, opacity:1}"></div>
+            
+                                        <div class="player_overlay">
+                                            <img src="img/content/video_1.jpg" alt="">
+                                        </div>
+                                    </div>
+                                </div>  
+                                
+                            </div>
+                            <div class="swiper-slide swiper-slide2">
+                                <div class="container">
+                                    <div class="banner__content">
+                                        <h2 class="banner__title">Апартаменты с гарантированной доходностью</h2>
+                                        <p class="banner__description">Уникальные инвестиционные апартаменты
+                                            с <span class="highlight highlight--secondary">гарантированной</span> доходностью 10,57% 
+                                            в Московском районе Петербурга.</p>
+                                        <a href="#" class="btn btn_1"><span class="inner_text">Подробнее</span></a>  
+            
+                                        <button class="banner__control" onclick="if($(this).hasClass('pause')){jQuery('#player2').YTPPause()}else{jQuery('#player2').YTPPlay()} "></button>
+                                        
+                                        <div id="player2" class="youtube_player" data-property="{videoURL:'http://youtu.be/1La4QzGeaaQ',containment:'.swiper-slide2', autoPlay: false, mute:true, startAt:0, opacity:1}">My video</div>
+                                    </div>
+                                </div>  
+                                
+                            </div>
+                            <div class="swiper-slide swiper-slide3">
+                                <div class="container">
+                                    <div class="banner__content">
+                                        <h2 class="banner__title">Апартаменты с гарантированной доходностью</h2>
+                                        <p class="banner__description">Уникальные инвестиционные апартаменты
+                                            с <span class="highlight highlight--secondary">гарантированной</span> доходностью 10,57% 
+                                            в Московском районе Петербурга.</p>
+                                        <a href="#" class="btn btn_1"><span class="inner_text">Подробнее</span></a>  
+            
+                                        <button class="banner__control" onclick="if($(this).hasClass('pause')){jQuery('#player3').YTPPause()}else{jQuery('#player3').YTPPlay()} "></button>
+                                        
+                                        <div id="player3" class="youtube_player" data-property="{videoURL:'http://youtu.be/1La4QzGeaaQ',containment:'.swiper-slide3',autoPlay: false, mute:true, startAt:0, opacity:1}">My video</div>
+                                    </div>
+                                </div>  
+                                
+                            </div>
+                            <div class="swiper-slide swiper-slide4">
+                                <div class="container">
+                                    <div class="banner__content">
+                                        <h2 class="banner__title">Апартаменты с гарантированной доходностью</h2>
+                                        <p class="banner__description">Уникальные инвестиционные апартаменты
+                                            с <span class="highlight highlight--secondary">гарантированной</span> доходностью 10,57% 
+                                            в Московском районе Петербурга.</p>
+                                        <a href="#" class="btn btn_1"><span class="inner_text">Подробнее</span></a>  
+            
+                                        <button class="banner__control" onclick="if($(this).hasClass('pause')){jQuery('#player4').YTPPause()}else{jQuery('#player4').YTPPlay()} "></button>
+                                        
+                                        <div id="player4" class="youtube_player" data-property="{videoURL:'http://youtu.be/1La4QzGeaaQ',containment:'.swiper-slide4', autoPlay: false,mute:true, startAt:0, opacity:1}">My video</div>
+                                    </div>
+                                </div>  
+                                
+                            </div>
                             
-                            <div class="swiper-slide">
+                            <!-- <div class="swiper-slide">
                                 <div class="container">
                                     <div class="banner__content">
                                         <h2 class="banner__title">Апартаменты с гарантированной доходностью</h2>
@@ -143,7 +213,7 @@
                                 <div class="player_overlay">
                                     <img src="img/content/video_1.jpg" alt="">
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
             
                         <div class="slider_controls">
@@ -346,7 +416,7 @@
                 </div>
             
                 <div class="map__block">
-                    <div class="map__slider slider_pattern">
+                    <div class="map__slider slider_pattern custom_bullets" data-swiper="swiper2">
                         <div class="swiper-wrapper">
                             
                             <div class="swiper-slide">
@@ -397,10 +467,12 @@
                                 <img src="img/content/map_1.jpg" alt="" class="slider__image">
                             </div>
                         </div>
+                        
+                        <div class="swiper-pagination2 progress_bar"></div>   
+                       
             
                         <div class="slider_controls">
-            
-                            <div class="swiper-pagination"></div>         
+                            <div class="swiper_bullets swiper-pagination-clickable"></div>   
             
                             <div class="swiper-button-next">
                                 <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -408,7 +480,16 @@
                                     <rect width="32" height="32" />
                                 </svg>                            
                             </div>
-                        </div>
+                        </div>  
+                    </div>
+            
+                    <div class="map__container">
+                        <img src="img/content/map_2.jpg" alt="" class="map__image">
+                        <a href="https://goo.gl/maps/qsMV5nC3nMqqT6tk6" class="map__picker map__picker1"></a>
+                        <a href="https://goo.gl/maps/cJxkjQjX8gB8MocW6" class="map__picker map__picker2"></a>
+                        <a href="https://goo.gl/maps/g2Y5zSzMVP9K7t4YA" class="map__picker map__picker3"></a>
+                        <a href="https://goo.gl/maps/4obBkpKw8Gp2gtvn9" class="map__picker map__picker4"></a>
+                        <a href="https://goo.gl/maps/M7uDp6qJ3yFLS2R1A" class="map__picker map__picker5"></a>
                     </div>
                 </div>
             </div>
@@ -417,6 +498,7 @@
         
         <script src="libs/jquery/jquery.min.js"></script>
         <script src="libs/swiper/swiper-bundle.min.js"></script>
+        <script src="libs/youtube/jquery.mb.YTPlayer.min.js"></script>
         <script src="js/main.js"></script>
         <script src="js/banner.js"></script>
     </body>
