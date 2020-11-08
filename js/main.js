@@ -1,5 +1,50 @@
 $(document).ready(function () {
-   
+       // add custom bullets
+       const createBullets = () => {
+        let sliderCount;
+
+        $('.custom_bullets').each(function () {
+            sliderCount = $(this).find('.swiper-slide').length
+
+            for (let i = 0; i < sliderCount; i++) {
+                $(this).find('.swiper_bullets').append(`<span class="swiper-pagination-bullet"></span>`)
+            }
+
+            $(this).find('.swiper-pagination-bullet').eq(0).addClass('swiper-pagination-bullet-active')
+
+            $(document).on('click',  '.custom_bullets .swiper-pagination-bullet', function() {
+                let slider = $(this).parents('.custom_bullets').data('swiper')
+                $(this).addClass('swiper-pagination-bullet-active').siblings().removeClass('swiper-pagination-bullet-active')
+                const index = $(this).index()
+
+                switch (slider) {
+                    case 'swiper2':
+                        swiper2.slideTo(index)
+                        break;
+                    case 'swiper3':
+                        swiper3.slideTo(index)
+                        break;
+                    case 'swiper4':
+                        swiper4.slideTo(index)
+                        break;
+                    case 'swiper5':
+                        swiper5.slideTo(index)
+                        break;
+                    case 'swiper6':
+                        swiper6.slideTo(index)
+                        break;
+                    case 'swiper7':
+                        swiper7.slideTo(index)
+                        break;
+                
+                    default:
+                        break;
+                }
+             });
+        })
+    }
+    createBullets()
+
     $(document).on('click','.menu_toggle', function() {
         $(this).toggleClass("open");
         $('.mobile_menu').toggleClass('active')
@@ -104,51 +149,77 @@ $(document).ready(function () {
         },
         on : {
             slideChange: function(i) {
-                swiper4.$el.find('.swiper-pagination-bullet').eq(swiper2.realIndex).addClass('swiper-pagination-bullet-active')
-                $('.infrastructure__slider .swiper-pagination-bullet').eq(swiper2.realIndex).siblings().removeClass('swiper-pagination-bullet-active')
+                swiper4.$el.find('.swiper-pagination-bullet').eq(swiper4.realIndex).addClass('swiper-pagination-bullet-active')
+                $('.infrastructure__slider .swiper-pagination-bullet').eq(swiper4.realIndex).siblings().removeClass('swiper-pagination-bullet-active')
             }
         }
     });
 
     var swiper5 = new Swiper('.team__slider', {
-        slidesPerView: 'auto',
-        centeredSlides: true,
-        spaceBetween: 50,
         slidesPerView: 4,
-        centerInsufficientSlides: true,
-        loop: true,
-        autoHeight: true
+        spaceBetween: 50,
+        autoHeight: true,
+
+        on : {
+            init: function () {
+
+                const sliderOffset = $('.team__content').offset().left
+                $('.team__slider .swiper-slide').eq(0).css('margin-left', sliderOffset)
+            }
+        }
     });
 
-        // add custom bullets
-    $(function () {
-        let sliderCount;
-
-        $('.custom_bullets').each(function () {
-            sliderCount = $(this).find('.swiper-slide').length
-
-            for (let i = 0; i < sliderCount; i++) {
-                $(this).find('.swiper_bullets').append(`<span class="swiper-pagination-bullet"></span>`)
+    var swiper6 = new Swiper('.progress__slider', {
+        pagination: {
+          el: '.swiper-pagination6',
+          type: 'progressbar'
+        },
+        navigation: {
+            nextEl: '.progress__slider .swiper-button-next'
+        },
+        on : {
+            slideChange: function(i) {
+                swiper6.$el.find('.swiper-pagination-bullet').eq(swiper6.realIndex).addClass('swiper-pagination-bullet-active')
+                $('.progress__slider .swiper-pagination-bullet').eq(swiper6.realIndex).siblings().removeClass('swiper-pagination-bullet-active')
             }
+        }
+    });
 
-            $(this).find('.swiper-pagination-bullet').eq(0).addClass('swiper-pagination-bullet-active')
-
-            $(document).on('click',  '.custom_bullets .swiper-pagination-bullet', function() {
-                let slider = $(this).parents('.custom_bullets').data('swiper')
-                $(this).addClass('swiper-pagination-bullet-active').siblings().removeClass('swiper-pagination-bullet-active')
-                const index = $(this).index()
-
-                switch (slider) {
-                    case 'swiper2':
-                        swiper2.slideTo(index)
-                        break;
+    var swiper7 = new Swiper('.gallery__slider', {
+        slidesPerView: 'auto',
+        spaceBetween: 60,
+        initialSlide: 1,
+        centeredSlides: true,
+        pagination: {
+          el: '.swiper-pagination7',
+          type: 'progressbar'
+        },
+        navigation: {
+            nextEl: '.gallery__slider .swiper-button-next'
+        },
+        on : {
+            init: function (i) {
+                i.$el.find('.swiper-pagination-bullet').eq(i.realIndex).addClass('swiper-pagination-bullet-active')
+            },
+            slideChange: function(i) {
+                i.$el.find('.swiper-pagination-bullet').eq(i.realIndex).addClass('swiper-pagination-bullet-active')
+                $('.gallery__slider .swiper-pagination-bullet').eq(i.realIndex).siblings().removeClass('swiper-pagination-bullet-active')
                 
-                    default:
-                        break;
+            },
+            click: function (i) {
+                if(i.clickedIndex === undefined) {
+                    return
                 }
-             });
-        })
-    })    
+                i.slideTo(i.clickedIndex)
+            }
+        }
+    });
+
+    // $(document).on('click', '.gallery__slider ' function () {
+
+    // })
+
+    
     // sliders end
 
     // tabs
