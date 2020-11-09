@@ -1,4 +1,3 @@
-
 jQuery(function(){
 
     $('.youtube_player').each(function () {

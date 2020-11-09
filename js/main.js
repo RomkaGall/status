@@ -77,6 +77,9 @@ $(document).ready(function () {
         navigation: {
             nextEl: '.map__slider .swiper-button-next'
         },
+        autoplay: {
+            delay: 3000,
+        },
         on : {
             slideChange: function(i) {
                 swiper2.$el.find('.swiper-pagination-bullet').eq(swiper2.realIndex).addClass('swiper-pagination-bullet-active')
@@ -89,6 +92,9 @@ $(document).ready(function () {
         pagination: {
           el: '.swiper-pagination3',
           type: 'progressbar'
+        },
+        autoplay: {
+            delay: 3000,
         },
         navigation: {
             nextEl: '.apartments__slider .swiper-button-next'
@@ -148,6 +154,9 @@ $(document).ready(function () {
         navigation: {
             nextEl: '.infrastructure__slider .swiper-button-next'
         },
+        autoplay: {
+            delay: 3000,
+        },
         on : {
             slideChange: function(i) {
                 swiper4.$el.find('.swiper-pagination-bullet').eq(swiper4.realIndex).addClass('swiper-pagination-bullet-active')
@@ -160,7 +169,9 @@ $(document).ready(function () {
         slidesPerView: 4,
         spaceBetween: 50,
         autoHeight: true,
-
+        autoplay: {
+            delay: 3000,
+        },
         on : {
             init: function () {
 
@@ -174,6 +185,9 @@ $(document).ready(function () {
         pagination: {
           el: '.swiper-pagination6',
           type: 'progressbar'
+        },
+        autoplay: {
+            delay: 3000,
         },
         navigation: {
             nextEl: '.progress__slider .swiper-button-next'
@@ -191,6 +205,9 @@ $(document).ready(function () {
         spaceBetween: 60,
         initialSlide: 1,
         centeredSlides: true,
+        autoplay: {
+            delay: 3000,
+        },
         pagination: {
           el: '.swiper-pagination7',
           type: 'progressbar'
