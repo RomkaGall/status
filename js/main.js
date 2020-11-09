@@ -18,6 +18,9 @@ $(document).ready(function () {
                 const index = $(this).index()
 
                 switch (slider) {
+                    case 'swiper':
+                        swiper.slideTo(index)
+                        break;
                     case 'swiper2':
                         swiper2.slideTo(index)
                         break;
@@ -56,16 +59,23 @@ $(document).ready(function () {
     var swiper = new Swiper('.banner__slider', {
         pagination: {
           el: '.swiper-pagination',
-          clickable: true
+          type: 'progressbar'
         },
         navigation: {
             nextEl: '.swiper-button-next'
         },
         on : {
             slideChange: function(i) {
-                const id = swiper.$el.find('.swiper-slide').eq(swiper.activeIndex).find('.youtube_player').attr('id')
+                swiper.$el.find('.swiper-pagination-bullet').eq(swiper.realIndex).addClass('swiper-pagination-bullet-active')
+                $('.banner__slider .swiper-pagination-bullet').eq(swiper.realIndex).siblings().removeClass('swiper-pagination-bullet-active')
+
+                const id = swiper.$el.find('.swiper-slide').eq(swiper.activeIndex - 1).find('.youtube_player').attr('id')
                 swiper.$el.find('.banner__control').removeClass('pause')
-                jQuery(`#${id}`).YTPPause()
+
+                if ( id !== undefined) {
+                    console.log(id, swiper.activeIndex)
+                    jQuery(`#${id}`).YTPPause()
+                }
             }
         }
     });
