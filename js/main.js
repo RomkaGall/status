@@ -48,6 +48,7 @@ $(document).ready(function () {
     $(document).on('click','.menu_toggle', function() {
         $(this).toggleClass("open");
         $('.mobile_menu').toggleClass('active')
+        $('.menu').toggleClass('show')
         $('body, html').toggleClass('no_scroll');
     })
 
