@@ -276,5 +276,9 @@ $(document).ready(function () {
 
         e.stopPropagation();
     });
+
+    $(document).on('click', '.modal_form', function () {
+        $('.popup--form').addClass('show')
+    })
 });
 

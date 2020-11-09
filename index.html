@@ -77,7 +77,7 @@
                                 </div>  
                                 <div class="player_overlay">
                                     <img src="img/content/video_1.jpg" alt="" class="banner__image">
-                                    <img src="img/design/preloader.gif" alt="">
+                                    <img src="img/design/preloader.gif" alt="" class="preloader">
                                 </div>
                                 <div class="text_overlay"></div>
                             </div>
@@ -113,7 +113,7 @@
                                 </div>  
                                 <div class="player_overlay">
                                     <img src="img/content/video_1.jpg" alt="" class="banner__image">
-                                    <img src="img/design/preloader.gif" alt="">
+                                    <img src="img/design/preloader.gif" alt="" class="preloader">
                                 </div>
                                 <div class="text_overlay"></div>
                             </div>
@@ -133,7 +133,7 @@
                                 </div>  
                                 <div class="player_overlay">
                                     <img src="img/content/video_1.jpg" alt="" class="banner__image">
-                                    <img src="img/design/preloader.gif" alt="">
+                                    <img src="img/design/preloader.gif" alt="" class="preloader">
                                 </div>
                                 <div class="text_overlay"></div>
                             </div>
@@ -1060,6 +1060,51 @@
                 </div>
             </div>
         </div>
+        
+        <div class="popup popup--form">
+            <div class="popup_wr">
+                <div class="popup__content">
+                    <button class="close ">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M18 6L6 18" stroke="#B3B1C2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M6 6L18 18" stroke="#B3B1C2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>                    
+                    </button>
+        
+                    <form class="form">
+                        <h3 class="form__title">Оставить заявку</h3>
+        
+                        <div class="input_wr">
+                            <input type="text" class="input input_2 required" placeholder="Ваше имя">
+                            <span class="error_text hidden">Поле не заполненно</span>
+                        </div>
+        
+                        <div class="input_wr">
+                            <input type="tel" class="input input_2 required input--tel" placeholder="Ваш номер">
+                            <span class="error_text hidden">Поле не заполненно</span>
+                        </div>
+        
+                        <div class="input_wr">
+                            <input type="email" class="input input_2 required" placeholder="Email">
+                            <span class="error_text hidden">Поле не заполненно</span>
+                        </div>
+                        
+                        
+                        
+        
+                        <button class="btn btn_2 submit_form"><span class="inner_text">Оставить заявку</span></button> 
+                    </form>
+        
+                    <div class="success_block form hidden">
+                        <h3 class="form__title">Заявка отправлена</h3>
+        
+                        <p class="text">
+                            Мы свяжемся с Вами в ближайшее время, чтобы обсудить все вопросы
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="footer">
         
             <div class="footer__top">
@@ -1131,7 +1176,9 @@
         <script src="libs/jquery/jquery.min.js"></script>
         <script src="libs/swiper/swiper-bundle.min.js"></script>
         <script src="libs/youtube/jquery.mb.YTPlayer.min.js"></script>
+        <script src="libs/mask/jquery.mask.min.js"></script>
         <script src="js/main.js"></script>
         <script src="js/banner.js"></script>
+        <script src="js/form.js"></script>
     </body>
 </html>
