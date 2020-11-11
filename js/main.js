@@ -79,7 +79,6 @@ $(document).ready(function () {
                 swiper.$el.find('.banner__control').removeClass('pause')
 
                 if ( id !== undefined) {
-                    console.log(id, swiper.activeIndex)
                     jQuery(`#${id}`).YTPPause()
                 }
             }
@@ -191,7 +190,7 @@ $(document).ready(function () {
         on : {
             init: function () {
 
-                if($(window).width > 1180) {
+                if($(window).width() > 1180) {
 
                     const sliderOffset = $('.team__content').offset().left
                     $('.team__slider .swiper-slide').eq(0).css('margin-left', sliderOffset) 
