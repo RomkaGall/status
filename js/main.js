@@ -316,5 +316,20 @@ $(document).ready(function () {
     $(document).on('click', '.modal_form', function () {
         $('.popup--form').addClass('show')
     })
+
+    const appHeight = () => {
+        const doc = document.documentElement
+        doc.style.setProperty('--app-height', `${window.innerHeight}px`)
+    }
+    window.addEventListener('resize', appHeight)
+    appHeight()
+
+    let innerHeight = $(window).innerHeight() - 62
+    
+    if ($(window).width() > 768) {
+        innerHeight = $(window).innerHeight() - 80
+    }
+
+    $('.banner').css('height', `${innerHeight}px`)
 });
 
