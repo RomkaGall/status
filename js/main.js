@@ -103,6 +103,8 @@ $(document).ready(function () {
         }
     });
 
+    let plan;
+
     var swiper3 = new Swiper('.apartments__slider', {
         pagination: {
           el: '.swiper-pagination3',
@@ -122,7 +124,7 @@ $(document).ready(function () {
                 const month = i.slides[i.activeIndex].dataset['month']
                 const area = i.slides[i.activeIndex].dataset['area']
                 const sum = i.slides[i.activeIndex].dataset['sum']
-                const plan = i.slides[i.activeIndex].dataset['plan']
+                plan = i.slides[i.activeIndex].dataset['plan']
                 // const image = 
 
                 i.$el.find('.slider_title').text(title)
@@ -133,7 +135,6 @@ $(document).ready(function () {
                 $('.apartments__values_item--month .value').text(`${month} ₽`)
                 $('.apartments__values_item--area .value').text(`${area} ₽`)
                 $('.apartments__values_item--sum .value').text(`${sum} ₽`)
-                $('.popup--plan .popup__image').attr('src', `img/content/${plan}`)
                 
             },
             slideChange: function(i) {
@@ -146,7 +147,7 @@ $(document).ready(function () {
                 const month = i.slides[i.activeIndex].dataset['month']
                 const area = i.slides[i.activeIndex].dataset['area']
                 const sum = i.slides[i.activeIndex].dataset['sum']
-                const plan = i.slides[i.activeIndex].dataset['plan']
+                plan = i.slides[i.activeIndex].dataset['plan']
 
                 i.$el.find('.slider_title').text(title)
                 i.$el.find('.slider_info_text').text(`Доход в год: ${profit} ₽`)
@@ -156,7 +157,6 @@ $(document).ready(function () {
                 $('.apartments__values_item--month .value').text(`${month} ₽`)
                 $('.apartments__values_item--area .value').text(`${area} ₽`)
                 $('.apartments__values_item--sum .value').text(`${sum} ₽`)
-                $('.popup--plan .popup__image').attr('src', `img/content/${plan}`)
             }
         }
     });
@@ -295,7 +295,8 @@ $(document).ready(function () {
     // tabs end
     
     $(document).on('click', '.apartments__show_plan', function () {
-        $(".popup--plan").addClass("show");
+        $(".popup--plan").addClass("show");        
+        $('.popup--plan .popup__image').attr('src', `img/content/${plan}`)
     })
 
     $(document).on("click", ".close", function () {
@@ -331,5 +332,9 @@ $(document).ready(function () {
     }
 
     $('.banner').css('height', `${innerHeight}px`)
+
+    $('.contacts__form').on('submit', function () {
+        $('.popup--success').addClass('show')
+    })
 });
 
