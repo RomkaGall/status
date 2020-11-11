@@ -50,9 +50,14 @@ $(document).ready(function () {
 
     $(document).on('click','.menu_toggle', function() {
         $(this).toggleClass("open");
-        $('.mobile_menu').toggleClass('active')
         $('.menu').toggleClass('show')
         $('body, html').toggleClass('no_scroll');
+    })
+
+    $(document).on('click','.menu__link', function () {
+        $('.menu').removeClass('show')
+        $('.menu_toggle').removeClass('open')
+        $('body, html').removeClass('no_scroll');
     })
 
     // sliders
@@ -91,9 +96,14 @@ $(document).ready(function () {
             delay: 3000,
         },
         on : {
+            init: function (i) {
+                $('.map__container .map__picker').eq(i.activeIndex + 1).fadeIn('fast').siblings('.map__picker_secondary').fadeOut('fast')
+            },
             slideChange: function(i) {
                 swiper2.$el.find('.swiper-pagination-bullet').eq(swiper2.realIndex).addClass('swiper-pagination-bullet-active')
                 $('.map__slider .swiper-pagination-bullet').eq(swiper2.realIndex).siblings().removeClass('swiper-pagination-bullet-active')
+
+                $('.map__container .map__picker').eq(swiper2.realIndex + 1).fadeIn('fast').siblings('.map__picker_secondary').fadeOut('fast')
             }
         }
     });
@@ -178,17 +188,39 @@ $(document).ready(function () {
     var swiper5 = new Swiper('.team__slider', {
         slidesPerView: 4,
         spaceBetween: 50,
-        autoHeight: true,
+        // autoHeight: true,
         autoplay: {
             delay: 3000,
         },
         on : {
             init: function () {
 
-                const sliderOffset = $('.team__content').offset().left
-                $('.team__slider .swiper-slide').eq(0).css('margin-left', sliderOffset)
+                if($(window).width > 1180) {
+
+                    const sliderOffset = $('.team__content').offset().left
+                    $('.team__slider .swiper-slide').eq(0).css('margin-left', sliderOffset) 
+                }
             }
-        }
+        },
+        breakpoints: {
+            
+            320: {
+                slidesPerView: 'auto',
+                spaceBetween: 20,
+                centeredSlides: true,
+                initialSlide: 1,
+            },
+            768: {
+                slidesPerView: 'auto',
+                spaceBetween: 50,
+                centeredSlides: true,
+                initialSlide: 1,
+            },
+            1024: {
+                slidesPerView: 4,
+                centeredSlides: false
+            }
+          }
     });
 
     var swiper6 = new Swiper('.progress__slider', {
@@ -240,7 +272,16 @@ $(document).ready(function () {
                 }
                 i.slideTo(i.clickedIndex)
             }
-        }
+        },
+        breakpoints: {
+            
+            320: {
+                spaceBetween: 20
+            },
+            1024: {
+                spaceBetween: 60
+            }
+          }
     });
 
     // $(document).on('click', '.gallery__slider ' function () {
@@ -280,5 +321,73 @@ $(document).ready(function () {
     $(document).on('click', '.modal_form', function () {
         $('.popup--form').addClass('show')
     })
+
+    // $(function() {
+    
+    //     var map = new google.maps.LatLng(46.4808562,30.7306394),
+    //         pointToMoveTo, 
+    //         first = true,
+    //         curMarker = new google.maps.Marker({}),
+    //         $el;
+        
+    //     var myOptions = {
+    //         zoom: 16,
+    //         center: map,
+    //         mapTypeId: google.maps.MapTypeId.ROADMAP
+    //       };
+        
+    //     var map = new google.maps.Map($("#map__container")[0], myOptions);
+      
+    //     $("#locations li").mouseenter(function() {
+        
+    //       $el = $(this);
+                  
+    //       if (!$el.hasClass("hover")) {
+          
+    //         $("#locations li").removeClass("hover");
+    //         $el.addClass("hover");
+          
+    //         if (!first) { 
+              
+    //           // Clear current marker
+    //           curMarker.setMap(); 
+              
+    //           // Set zoom back to map level
+    //           // map.setZoom(10);
+    //         }
+            
+    //         // Move (pan) map to new location
+    //         pointToMoveTo = new google.maps.LatLng($el.attr("data-geo-lat"), $el.attr("data-geo-long"));
+    //         map.panTo(pointToMoveTo);
+            
+    //         // Add new marker
+    //         curMarker = new google.maps.Marker({
+    //             position: pointToMoveTo,
+    //             map: map,
+    //             icon: "images/marker.png"
+    //         });
+            
+    //         // On click, zoom map
+    //         google.maps.event.addListener(curMarker, 'click', function() {
+    //            map.setZoom(14);
+    //         });
+            
+    //         // Fill more info area
+    //         $("#more-info")
+    //           .find("h2")
+    //             .html($el.find("h3").html())
+    //             .end()
+    //           .find("p")
+    //             .html($el.find(".longdesc").html());
+            
+    //         // No longer the first time through (re: marker clearing)        
+    //         first = false; 
+    //       }
+          
+    //     });
+        
+    //     $("#locations li:first").trigger("mouseenter");
+        
+    //   });
 });
 

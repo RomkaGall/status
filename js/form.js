@@ -4,7 +4,7 @@ $(document).ready(function () {
     //     onComplete: function(cep) {
     //       $(t)
     //     }
-      };
+    //   };
 
       $('.input--tel').mask('+0 (000) 000 00 00');
 
