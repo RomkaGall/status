@@ -55,6 +55,12 @@ $(document).ready(function () {
         $('body, html').toggleClass('no_scroll');
     })
 
+    $(document).on('click','.menu__link', function() {
+        $('.menu_toggle').removeClass('open')
+        $('.menu').removeClass('show')
+        $('body, html').removeClass('no_scroll');
+    })
+
     // sliders
     var swiper = new Swiper('.banner__slider', {
         pagination: {
