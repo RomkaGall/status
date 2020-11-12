@@ -173,12 +173,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 const latLng = new google.maps.LatLng(coordinates[swiper2.realIndex + 1].lat, coordinates[swiper2.realIndex + 1].lng);
                 curMarker = new google.maps.Marker({
                     position: new google.maps.LatLng(coordinates[0].lat, coordinates[0].lng),
-                    icon: "../img/design/map_picker.svg",
+                    icon: "img/design/map_picker.svg",
                     map: map,
                 });
                 curMarker = new google.maps.Marker({
                     position: latLng,
-                    icon: "../img/design/map_picker.svg",
+                    icon: "img/design/map_picker.svg",
                     map: map,
                 });
             }
