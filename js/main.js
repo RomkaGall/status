@@ -154,7 +154,7 @@ document.addEventListener('DOMContentLoaded', () => {
             init: function(){
                 curMarker = new google.maps.Marker({
                     position: new google.maps.LatLng(coordinates[0].lat, coordinates[0].lng),
-                    icon: "../img/design/map_picker.svg",
+                    icon: "img/design/map_picker.svg",
                     map: map,
                 });
 
