@@ -36,23 +36,6 @@ document.addEventListener('DOMContentLoaded', () => {
             "lng" : 30.346293
         }
     ]
-    // Loop through the results array and place a marker for each
-    // set of coordinates.  
-    // const mapCoordinates = function (results) {
-    //   for (let i = 0; i < results.length; i++) {
-    //     const coordsLat = results[i].lat;
-    //     const coordsLng = results[i].lng;
-    //     const latLng = new google.maps.LatLng(coordsLat, coordsLng);
-    //     new google.maps.Marker({
-    //       position: latLng,
-    //       icon: "../img/design/map_picker.svg",
-    //       map: map,
-    //     });
-    //   }
-    // };
-    
-    
-    // mapCoordinates(coordinates)
 
       // add custom bullets
       const createBullets = () => {
