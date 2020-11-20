@@ -40,16 +40,16 @@
                 <div class="menu__content">
                     <nav class="menu__nav">
                         <ul class="menu__links">
-                            <li class="menu__link"><a href="#format">Уникальный формат</a></li>
-                            <li class="menu__link"><a href="#program">Программы доходности</a></li>
-                            <li class="menu__link"><a href="#map">Местоположение</a></li>
-                            <li class="menu__link"><a href="#apartments">Инвестиционные апартаменты</a></li>
-                            <li class="menu__link"><a href="#about">О Accor Hotels</a></li>
-                            <li class="menu__link"><a href="#infrastructure">Инфраструктура</a></li>
-                            <li class="menu__link"><a href="#team">Команда</a></li>
-                            <li class="menu__link"><a href="#progress">Ход строительства</a></li>
-                            <li class="menu__link"><a href="#gallery">Галерея</a></li>
-                            <li class="menu__link"><a href="#contacts">Контакты</a></li>
+                            <li class="menu__link"><span data-href="#format">Уникальный формат</span></li>
+                            <li class="menu__link"><span data-href="#program">Программы доходности</span></li>
+                            <li class="menu__link"><span data-href="#map">Местоположение</span></li>
+                            <li class="menu__link"><span data-href="#apartments">Инвестиционные апартаменты</span></li>
+                            <li class="menu__link"><span data-href="#about">О Accor Hotels</span></li>
+                            <li class="menu__link"><span data-href="#infrastructure">Инфраструктура</span></li>
+                            <li class="menu__link"><span data-href="#team">Команда</span></li>
+                            <li class="menu__link"><span data-href="#progress">Ход строительства</span></li>
+                            <li class="menu__link"><span data-href="#gallery">Галерея</span></li>
+                            <li class="menu__link"><span data-href="#contacts">Контакты</span></li>
                         </ul>
                     </nav>
                 </div>
@@ -81,6 +81,7 @@
                                 </div>  
             
                                 <video src="img/1.mp4" autoplay controls muted="muted"></video>
+                                
                                 <div class="player_overlay">
                                     <img src="img/content/video_1.jpg" alt="" class="banner__image">
                                     <img src="img/design/preloader.gif" alt="" class="preloader">
@@ -1033,12 +1034,14 @@
             
                             <form  class="contacts__form">
                                 <div class="input_row">
-                                    <input type="email" class="input" placeholder="Ваш email" required>
+                                    <input type="email" class="input validateEmail_input" placeholder="Ваш email">
                 
-                                    <button class="btn btn_2">
+                                    <button class="btn btn_2 validateEmail">
                                         <span class="inner_text">Свяжитесь со мной</span>
                                     </button>                        
                                 </div>
+            
+                                <span class="error_text hidden">Неверный email</span>
                             </form>
             
                             <div class="contacts__info">
