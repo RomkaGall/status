@@ -113,11 +113,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 swiper.$el.find('.swiper-pagination-bullet').eq(swiper.realIndex).addClass('swiper-pagination-bullet-active')
                 $('.banner__slider .swiper-pagination-bullet').eq(swiper.realIndex).siblings().removeClass('swiper-pagination-bullet-active')
 
-                const id = swiper.$el.find('.swiper-slide').eq(swiper.activeIndex - 1).find('.youtube_player').attr('id')
-                swiper.$el.find('.banner__control').removeClass('pause')
+                const prevSlide = swiper.$el.find('.swiper-slide').eq(swiper.activeIndex - 1);
+                const nextSlide = swiper.$el.find('.swiper-slide').eq(swiper.activeIndex + 1);
 
-                if ( id !== undefined) {
-                    jQuery(`#${id}`).YTPPause()
+                if ( prevSlide.find('.video_container').length ) {
+                    prevSlide.find('.banner__control').removeClass('pause')
+                    prevSlide.find('.video_container')[0].pause()
                 }
             }
         }
@@ -344,10 +345,6 @@ document.addEventListener('DOMContentLoaded', () => {
           }
     });
 
-    // $(document).on('click', '.gallery__slider ' function () {
-
-    // })
-
     
     // sliders end
 
@@ -400,5 +397,31 @@ document.addEventListener('DOMContentLoaded', () => {
 
     $('.contacts__form').on('submit', function () {
         $('.popup--success').addClass('show')
+    })
+
+    // change video on desktop/mobile
+    $('.video_container').each(function () {
+        
+        const video = $(this);
+
+        const WindowWidth = $(window).width();
+
+        if (WindowWidth < 768) {
+            //It is a small screen
+            if($(this).data('mobile')) {
+                video.append(`<source src='${$(this).data('mobile')}' type='video/mp4' >`);
+            } else {
+                video.append(`<source src='${$(this).data('desktop')}' type='video/mp4' >`);
+            }
+            
+        } else {
+            //It is a big screen or desktop
+
+            if($(this).data('desktop')) {
+                video.append(`<source src='${$(this).data('desktop')}' type='video/mp4' >`);
+            } else {
+                video.append(`<source src='${$(this).data('mobile')}' type='video/mp4' >`);
+            }
+        }
     })
 }); 
