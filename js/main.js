@@ -21,19 +21,23 @@ document.addEventListener('DOMContentLoaded', () => {
     const coordinates = [
         {
             "lat": 59.832050,
-            "lng" : 30.325623
+            "lng" : 30.325623,
+            "picker": "img/design/map_picker.svg"
         },
         {
             "lat": 59.798348, 
-            "lng" : 30.274001
+            "lng" : 30.274001,
+            "picker": "img/design/map_picker1.svg"
         },
         {
             "lat": 59.762123, 
-            "lng" : 30.356293
+            "lng" : 30.356293,
+            "picker": "img/design/map_picker2.svg"
         },
         {
             "lat": 59.782123, 
-            "lng" : 30.346293
+            "lng" : 30.346293,
+            "picker": "img/design/map_picker.svg"
         }
     ]
 
@@ -138,7 +142,7 @@ document.addEventListener('DOMContentLoaded', () => {
             init: function(){
                 curMarker = new google.maps.Marker({
                     position: new google.maps.LatLng(coordinates[0].lat, coordinates[0].lng),
-                    icon: "img/design/map_picker.svg",
+                    icon: coordinates[0].picker,
                     map: map,
                 });
 
@@ -155,14 +159,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
                 const latLng = new google.maps.LatLng(coordinates[swiper2.realIndex + 1].lat, coordinates[swiper2.realIndex + 1].lng);
+
                 curMarker = new google.maps.Marker({
                     position: new google.maps.LatLng(coordinates[0].lat, coordinates[0].lng),
-                    icon: "img/design/map_picker.svg",
+                    icon: coordinates[0].picker,
                     map: map,
                 });
                 curMarker = new google.maps.Marker({
                     position: latLng,
-                    icon: "img/design/map_picker.svg",
+                    icon: coordinates[swiper2.realIndex + 1].picker,
                     map: map,
                 });
             }
@@ -285,20 +290,25 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     var swiper6 = new Swiper('.progress__slider', {
-        pagination: {
-          el: '.swiper-pagination6',
-          type: 'progressbar'
-        },
+        // pagination: {
+        //   el: '.swiper-pagination6',
+        //   type: 'progressbar'
+        // },
         autoplay: {
             delay: 3000,
         },
         navigation: {
-            nextEl: '.progress__slider .swiper-button-next'
+            prevEl: '.progress .swiper-button-prev',
+            nextEl: '.progress .swiper-button-next'
         },
         on : {
             slideChange: function(i) {
-                swiper6.$el.find('.swiper-pagination-bullet').eq(swiper6.realIndex).addClass('swiper-pagination-bullet-active')
-                $('.progress__slider .swiper-pagination-bullet').eq(swiper6.realIndex).siblings().removeClass('swiper-pagination-bullet-active')
+                // swiper6.$el.find('.swiper-pagination-bullet').eq(swiper6.realIndex).addClass('swiper-pagination-bullet-active')
+                // $('.progress .swiper-pagination-bullet').eq(swiper6.realIndex).siblings().removeClass('swiper-pagination-bullet-active')
+                $('.progress .section__block_item').eq(swiper6.realIndex).slideDown('fast')
+                $('.progress .section__block_item').eq(swiper6.realIndex).siblings().not('.slider_controls').slideUp('fast')
+
+
             }
         }
     });
@@ -359,6 +369,7 @@ document.addEventListener('DOMContentLoaded', () => {
     $(document).on('click', '.apartments__show_plan', function () {
         $(".popup--plan").addClass("show");        
         $('.popup--plan .popup__image').attr('src', `img/content/${plan}`)
+        $('.popup--plan .popup__download').attr('href', `img/content/${plan}`)
     })
 
     $(document).on("click", ".close", function () {
