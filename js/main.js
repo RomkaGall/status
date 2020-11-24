@@ -365,9 +365,9 @@ document.addEventListener('DOMContentLoaded', () => {
         //   el: '.swiper-pagination6',
         //   type: 'progressbar'
         // },
-        autoplay: {
-            delay: 3000,
-        },
+        // autoplay: {
+        //     delay: 3000,
+        // },
         navigation: {
             prevEl: '.progress .swiper-button-prev',
             nextEl: '.progress .swiper-button-next'
@@ -441,10 +441,14 @@ document.addEventListener('DOMContentLoaded', () => {
         $(".popup--plan").addClass("show");        
         $('.popup--plan .popup__image').attr('src', `img/content/${plan}`)
         $('.popup--plan .popup__download').attr('href', `img/content/${plan}`)
+
+        console.log(swiper3)
+        swiper3.autoplay.stop();
     })
 
     $(document).on("click", ".close", function () {
         $(".popup").removeClass("show");
+        swiper3.autoplay.start();
     });
 
     $(document).on("click touchstart", function (e) {
@@ -453,6 +457,7 @@ document.addEventListener('DOMContentLoaded', () => {
             !$(e.target).closest(".popup__content").length 
         ) {
             $(e.target).removeClass("show");
+            swiper3.autoplay.start();    
         }
 
         e.stopPropagation();
