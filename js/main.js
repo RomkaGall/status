@@ -147,9 +147,9 @@ document.addEventListener('DOMContentLoaded', () => {
         navigation: {
             nextEl: '.map__slider .swiper-button-next'
         },
-        // autoplay: {
-        //     delay: 3000,
-        // },
+        autoplay: {
+            delay: 3000,
+        },
         on : {
             init: function(){
                 mainMarker = new google.maps.Marker({
